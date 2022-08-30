@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build ",
     "start": "next start",
     "lint": "next lint"
   },
@@ -22,7 +22,7 @@
     "next": "12.1.6",
     "next-i18next": "^11.0.0",
     "react": "18.1.0",
-    "react-dom": "18.1.0",
+    "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "react-loading-skeleton": "^3.1.0",
     "react-progressive-graceful-image": "^0.6.14",
