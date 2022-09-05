@@ -1,3 +1,9 @@
+<p align="center"><a href="https://marina.com.eg" target="_blank"><img src="./public/Images/navbar/logo.svg" width="400"></a></p>
+
+[![NextBuild](https://github.com/mkhedre/marina/actions/workflows/next-build.yaml/badge.svg)](https://github.com/mkhedre/marina/actions/workflows/next-build.yaml)
+
+----------
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -32,3 +38,11 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+----------
+
+## Made with ♥ By
+
+<p align="center"><a href="https://nozom.sa" target="_blank"><img src="https://nozom.sa/img/logo.svg" width="200"></a></p>
+
