@@ -1,26 +1,28 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { Container, Button, Grid } from "@mantine/core";
-import Image from "next/image";
-import React from "react";
-import styles from "@/styles/guide.module.scss";
-import img from "@/public/Images/guide/joseph-barrientos-oQl0eVYd_n8-unsplash.jpg";
-import imgOne from "@/public/Images/guide/oliver-sjostrom-4pxycrNRhvg-unsplash.jpg";
-import imgTwo from "@/public/Images/guide/two.jpg";
-import imgThree from "@/public/Images/guide/three.jpg";
-import PageComponent from "@/components/PageComponent";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
+import { Container, Button, Grid } from '@mantine/core';
+import Image from 'next/image';
+import React from 'react';
+import styles from '@/styles/guide.module.scss';
+import img from '@/public/Images/guide/joseph-barrientos-oQl0eVYd_n8-unsplash.jpg';
+import imgOne from '@/public/Images/guide/oliver-sjostrom-4pxycrNRhvg-unsplash.jpg';
+import imgTwo from '@/public/Images/guide/two.jpg';
+import imgThree from '@/public/Images/guide/three.jpg';
+import PageComponent from '@/components/PageComponent';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
 
-const Index = () => {
-  const { t } = useTranslation("guide");
+const Index = ({ quidePdf }) => {
+  const { t } = useTranslation('guide');
+  const [pdf] = quidePdf;
 
   return (
     <>
       <PageComponent
         styles={styles}
-        title={t("guide")}
-        hero={img}
+        title={t('guide')}
+        hero={img.src}
         button="buttonDownload"
+        link={pdf.pdf}
       >
         <div className="container mx-auto">
           <div className="flex mt-[100px] mb-[100px] md:mb-[150px]">
@@ -85,7 +87,7 @@ const Index = () => {
             </ul>
             <div className="flex-1">
               <div className="text-lg sm:text-3xl lg:text-6xl font-extrabold text-right text-[#3a3a3a] leading-tight">
-                <p className="">{t("insctructions")}</p>
+                <p className="">{t('insctructions')}</p>
               </div>
               <img src={imgOne.src} className="h-full" alt="Img One" />
             </div>
@@ -94,7 +96,7 @@ const Index = () => {
           <div className="flex  mb-[100px]">
             <div className="flex-1">
               <div className="text-lg sm:text-2xl lg:text-6xl font-extrabold text-[#3a3a3a] leading-tight">
-                <p className="">{t("activity")}</p>
+                <p className="">{t('activity')}</p>
               </div>
               <img src={imgTwo.src} className="mt-10 " alt="Img One" />
             </div>
@@ -118,7 +120,7 @@ const Index = () => {
                 the competent maritime inspection department
               </li>
               <li>
-                We must make sure that all safety equipment is <br></br>{" "}
+                We must make sure that all safety equipment is <br></br>{' '}
                 available freely and this equipment is: Fire extinguisher
                 conforms to the specifications of the Egyptian Maritime Safety
                 Authority<br></br>
@@ -196,11 +198,11 @@ const Index = () => {
                 in the sector of <br></br>
                 your residence and the head of the sector that follows it and
                 god willing you will receive <br></br>a complaint And your note
-                all the attention and in case of non-response from the sector{" "}
+                all the attention and in case of non-response from the sector{' '}
                 <br></br>
                 which is taken seriously by the management of the company we ask
                 you<br></br>
-                to contact the main center of the administration and inform{" "}
+                to contact the main center of the administration and inform{' '}
                 <br></br>
                 the officials about the failure of the sector to eliminate the
                 complaint and hold the<br></br>
@@ -214,17 +216,17 @@ const Index = () => {
               <Image src={imgThree} width="917" height="967" />
             </div>
             <ul className="flex-1 flex flex-col gap-4 text-[7px] sm:text-sm text-[#7f7f7f]">
-              <div className="text-black text-lg sm:text-2xl lg:text-6xl font-extrabold  leading-tight">
-                <p className="">{t("ill")}</p>
+              <div className="text-lg font-extrabold leading-tight text-black sm:text-2xl lg:text-6xl">
+                <p className="">{t('ill')}</p>
               </div>
 
               <li>
                 Inside Marina El Alamein Center Marina Central Hospital is
                 located, <br></br>
-                run by elite doctors from the Ministry of Health and Population,{" "}
+                run by elite doctors from the Ministry of Health and Population,{' '}
                 <br></br>
                 and the center has all the emergency equipment and emergency
-                services. The hospital is headed by Dr. Mahmoud Al-Helwani.{" "}
+                services. The hospital is headed by Dr. Mahmoud Al-Helwani.{' '}
                 <br></br>
                 Tel: 01222387383, 4060833/046<br></br>
               </li>
@@ -239,8 +241,8 @@ const Index = () => {
 
           <div className="">
             <p className="text-2xl sm:text-2xl lg:text-6xl font-extrabold text-center leading-tight mt-[100px] mb-[20px] sm:mb-[70px]">
-              {t("landing")}
-              {t("control")}
+              {t('landing')}
+              {t('control')}
             </p>
           </div>
           <div className="text-[10px] sm:text-sm text-center text-[#7f7f7f] leading-relaxed">
@@ -268,9 +270,13 @@ const Index = () => {
 export default Index;
 
 export const getServerSideProps = async (context) => {
+  const quidePdf = await fetch(
+    'https://admin.marina.com.eg/api/data/pdfs'
+  ).then((res) => res.json());
   return {
     props: {
-      ...(await serverSideTranslations(context.locale, ["guide", "common"])),
+      quidePdf: quidePdf,
+      ...(await serverSideTranslations(context.locale, ['guide', 'common'])),
     },
   };
 };

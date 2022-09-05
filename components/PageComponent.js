@@ -1,33 +1,38 @@
-import { useRouter } from 'next/router'
-import React from 'react'
-import Footer from '@/components/layouts/Footer/Index'
-import ProgressiveImage from 'react-progressive-graceful-image'
+import { useRouter } from 'next/router';
+import React from 'react';
+import Footer from '@/components/layouts/Footer/Index';
+import ProgressiveImage from 'react-progressive-graceful-image';
 
-const PageComponent = props => {
-  const router = useRouter()
+const PageComponent = (props) => {
+  const router = useRouter();
   return (
     <>
-      <section className='page__header' style={{ minHeight: '130vh' }}>
+      <section
+        className="page__header"
+        style={{ maxHeight: '120vh', overflow: 'hidden' }}
+      >
         {/* <img src= alt='' /> */}
-        <ProgressiveImage src={props.hero.src} placeholder='loading'>
+        <ProgressiveImage src={props.hero} placeholder="loading">
           {(src, loading) => (
             <img
               className={`image${loading ? ' loading' : ' loaded'}`}
               src={src}
-              alt='sea beach'
-              width='100%'
-              height='100%'
+              alt="sea beach"
+              width="100%"
+              height="100%"
             />
           )}
         </ProgressiveImage>
-        <div className='page__overlay'></div>
-        <div className='page__hero__content flex-col'>
-          <h1 className='page__title'>{props.title}</h1>
+        <div className="page__overlay"></div>
+        <div className="flex-col page__hero__content">
+          <h1 className="page__title">{props.title}</h1>
           {props.button && (
             <a
-              href='/guid.pdf'
-              className='text-white text-[11px] md:text-lg font-bold bg-[#0cceff] mt-3 md:mt-6 p-2 md:p-4 px-3 md:px-6 rounded-2xl'
+              href={props.link}
+              className="text-white text-[11px] md:text-lg font-bold bg-[#0cceff] mt-3 md:mt-6 p-2 md:p-4 px-3 md:px-6 rounded-2xl"
               download
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Download the guide
             </a>
@@ -39,7 +44,7 @@ const PageComponent = props => {
         <Footer></Footer>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default PageComponent
+export default PageComponent;

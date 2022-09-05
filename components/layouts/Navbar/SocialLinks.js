@@ -1,21 +1,19 @@
-import React, { useEffect } from "react";
-import styles from "@/styles/layout.module.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPhone, faUser } from "@fortawesome/free-solid-svg-icons";
-import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { useRouter } from "next/router";
-import { useRecoilState } from "recoil";
-import { languageState } from "@/atoms";
+import React, { useEffect } from 'react';
+import styles from '@/styles/layout.module.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPhone, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { useRouter } from 'next/router';
+import { useRecoilState } from 'recoil';
+import { languageState } from '@/atoms';
 
 const SocialLinks = () => {
   const router = useRouter();
   const { locale } = router;
 
-  console.log(router.pathname);
-
   const handelChangeLanguage = () => {
-    router.push(`${router.pathname}`, `${router.pathname}`, {
-      locale: locale === "en" ? "ar" : "en",
+    router.push(`${router.asPath}`, `${router.asPath}`, {
+      locale: locale === 'en' ? 'ar' : 'en',
     });
   };
 
@@ -49,10 +47,10 @@ const SocialLinks = () => {
       </li>
       <li className={styles.social__item}>
         <button
-          className="font-extrabold text-white text-xl"
+          className="text-xl font-extrabold text-white"
           onClick={handelChangeLanguage}
         >
-          {locale === "en" ? "ar" : "en"}
+          {locale === 'en' ? 'ar' : 'en'}
         </button>
       </li>
     </ul>

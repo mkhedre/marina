@@ -1,30 +1,30 @@
-import { Button, Container, Grid } from '@mantine/core'
-import styles from '@/styles/Home.module.scss'
-import Image from 'next/image'
-import Logo from '@/public/Images/navbar/logo.svg'
-import Link from 'next/link'
-import HomeCard from '@/components/home/HomeCard'
-import { useTranslation } from 'next-i18next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
-import ProgressiveImage from 'react-progressive-graceful-image'
+import { Button, Container, Grid } from '@mantine/core';
+import styles from '@/styles/Home.module.scss';
+import Image from 'next/image';
+import Logo from '@/public/Images/navbar/logo.svg';
+import Link from 'next/link';
+import HomeCard from '@/components/home/HomeCard';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+import ProgressiveImage from 'react-progressive-graceful-image';
 
-const { Col } = Grid
+const { Col } = Grid;
 
 const Home = () => {
-  const { t } = useTranslation('home')
+  const { t } = useTranslation('home');
   return (
     <>
       <section className={styles.home} style={{ minHeight: '130vh' }}>
-        <ProgressiveImage src='/Images/home/hero.jpg' placeholder='loading'>
+        <ProgressiveImage src="/Images/home/hero.jpg" placeholder="loading">
           {(src, loading) => (
             <img
               className={`image${loading ? ' loading' : ' loaded'}`}
               src={src}
-              alt='sea beach'
-              width='100%'
-              height='100%'
+              alt="sea beach"
+              width="100%"
+              height="100%"
             />
           )}
         </ProgressiveImage>
@@ -32,12 +32,12 @@ const Home = () => {
         <Container className={styles.home__container} fluid px={20}>
           <div className={styles.home__title}>
             <p className={styles.discover}>{t('discover')}</p>
-            <h1 className='text-2xl sm:text-4xl lg:text-6xl leading-tight mt-4'>
+            <h1 className="mt-4 text-2xl leading-tight sm:text-4xl lg:text-6xl">
               {t('textOneHeader')} <br /> {t('textTwoHeader')} <br />
               {t('textThreeHeader')}
               {t('yourTrue')}
             </h1>
-            <p className='text-lg'>{t('discriptionHeader')}</p>
+            <p className="text-lg">{t('discriptionHeader')}</p>
             <Link href={'/whereToGo'}>
               <Button uppercase className={styles.header__btn}>
                 {t('distinationBtn')}
@@ -49,7 +49,7 @@ const Home = () => {
 
       <section className={styles.looking__for}>
         <Container fluid px={20}>
-          <h2 className='text-[#3a3a3a] text-2xl sm:text-6xl uppercase mb-6'>
+          <h2 className="text-[#3a3a3a] text-2xl sm:text-6xl uppercase mb-6">
             {t('discoverDistance')}
           </h2>
           <Grid
@@ -62,10 +62,10 @@ const Home = () => {
                 <div className={`${styles.grid__item} cursor-pointer `}>
                   {(
                     <Image
-                      src='/Images/home/mink-mingle-g0Qdolm3K14-unsplash.jpg'
-                      layout='fill'
-                      objectFit='cover'
-                      alt='BEACHS'
+                      src="/Images/home/mink-mingle-g0Qdolm3K14-unsplash.jpg"
+                      layout="fill"
+                      objectFit="cover"
+                      alt="BEACHS"
                     />
                   ) || <Skeleton />}
                   <h3>BEACHS & WATER ACTIVITIES</h3>
@@ -76,10 +76,10 @@ const Home = () => {
               <Link href={'/restaurants'}>
                 <div className={`${styles.grid__item} cursor-pointer `}>
                   <Image
-                    src='/Images/home/daan-evers-tKN1WXrzQ3s-unsplash.jpg'
-                    layout='fill'
-                    objectFit='cover'
-                    alt='RESTAURANTS'
+                    src="/Images/home/daan-evers-tKN1WXrzQ3s-unsplash.jpg"
+                    layout="fill"
+                    objectFit="cover"
+                    alt="RESTAURANTS"
                   />
                   <h3>RESTAURANTS</h3>
                 </div>
@@ -90,10 +90,10 @@ const Home = () => {
                 <div className={`${styles.grid__item} cursor-pointer `}>
                   {(
                     <Image
-                      src='/Images/home/reisetopia-aI6Su7Mu9Ro-unsplash.jpg'
-                      layout='fill'
-                      objectFit='cover'
-                      alt='HOTELS'
+                      src="/Images/home/reisetopia-aI6Su7Mu9Ro-unsplash.jpg"
+                      layout="fill"
+                      objectFit="cover"
+                      alt="HOTELS"
                     />
                   ) || <Skeleton />}
 
@@ -106,10 +106,10 @@ const Home = () => {
                 <div className={`${styles.grid__item} cursor-pointer `}>
                   {(
                     <Image
-                      src='/Images/home/usman-yousaf-MP9W9DtdoBI-unsplash.jpg'
-                      layout='fill'
-                      objectFit='cover'
-                      alt='HEALTHCARE'
+                      src="/Images/home/usman-yousaf-MP9W9DtdoBI-unsplash.jpg"
+                      layout="fill"
+                      objectFit="cover"
+                      alt="HEALTHCARE"
                     />
                   ) || <Skeleton />}
 
@@ -121,10 +121,10 @@ const Home = () => {
               <div className={`${styles.grid__item} cursor-pointer `}>
                 {(
                   <Image
-                    src='/Images/home/linus-nylund-UCIZh0-OYPw-unsplash.jpg'
-                    layout='fill'
-                    objectFit='cover'
-                    alt='MARINA'
+                    src="/Images/home/linus-nylund-UCIZh0-OYPw-unsplash.jpg"
+                    layout="fill"
+                    objectFit="cover"
+                    alt="MARINA"
                   />
                 ) || <Skeleton />}
 
@@ -145,25 +145,25 @@ const Home = () => {
       <Container fluid px={20}>
         <section>
           <HomeCard
-            title='General Assembly  Meeting'
-            image='/Images/home/linus-nylund-UCIZh0-OYPw-unsplash.jpg'
+            title="General Assembly  Meeting"
+            image="/Images/home/linus-nylund-UCIZh0-OYPw-unsplash.jpg"
             t={t}
           />
           <HomeCard
-            title='Winter Access Policy'
-            image='/Images/home/linus-nylund-UCIZh0-OYPw-unsplash.jpg'
-            reverse='true'
+            title="Winter Access Policy"
+            image="/Images/home/linus-nylund-UCIZh0-OYPw-unsplash.jpg"
+            reverse="true"
             t={t}
           />
           <HomeCard
-            title='Change of work schedule statement'
-            image='/Images/home/linus-nylund-UCIZh0-OYPw-unsplash.jpg'
+            title="Change of work schedule statement"
+            image="/Images/home/linus-nylund-UCIZh0-OYPw-unsplash.jpg"
             t={t}
           />
           <HomeCard
-            title='Being a part of new El Alamin city'
-            image='/Images/home/linus-nylund-UCIZh0-OYPw-unsplash.jpg'
-            reverse='true'
+            title="Being a part of new El Alamin city"
+            image="/Images/home/linus-nylund-UCIZh0-OYPw-unsplash.jpg"
+            reverse="true"
             t={t}
           />
         </section>
@@ -171,11 +171,11 @@ const Home = () => {
 
       <Container fluid px={20}>
         <div className={styles.know__more}>
-          <h2 className='text-[#3a3a3a] text-2xl sm:text-5xl font-extrabold mb-6'>
+          <h2 className="text-[#3a3a3a] text-2xl sm:text-5xl font-extrabold mb-6">
             {t('wannaKnowMore')}
           </h2>
-          <Link href='/about'>
-            <Button size='xl' uppercase className={styles.btn}>
+          <Link href="/about">
+            <Button size="xl" uppercase className={styles.btn}>
               {t('readNowBtn')}
             </Button>
           </Link>
@@ -184,19 +184,19 @@ const Home = () => {
 
       <section className={styles.footer}>
         <a className={styles.footer_logo}>
-          <Image src={Logo} alt='logo'></Image>
+          <Image src={Logo} alt="logo"></Image>
         </a>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
 
-export const getServerSideProps = async context => {
+export const getServerSideProps = async (context) => {
   return {
     props: {
-      ...(await serverSideTranslations(context.locale, ['home', 'common']))
-    }
-  }
-}
+      ...(await serverSideTranslations(context.locale, ['home', 'common'])),
+    },
+  };
+};
