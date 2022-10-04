@@ -48,7 +48,7 @@
 .sectionThree {
   height: 100vh;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .ContantOneSectionThree p {
@@ -81,7 +81,7 @@
   background-size: cover;
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: flex-end;
   color: white;
   font-size: 60px;
   font-weight: bold;
@@ -159,7 +159,7 @@
   .sectionThree {
     height: 100vh;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
   }
 
   .ContantOneSectionThree p {
@@ -242,7 +242,7 @@
   .sectionThree {
     height: 100vh;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
   }
 
   .ContantOneSectionThree p {
@@ -337,7 +337,7 @@
   .sectionThree {
     height: 100vh;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
   }
 
   .ContantOneSectionThree p {
